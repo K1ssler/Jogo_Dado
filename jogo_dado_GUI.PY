@@ -21,16 +21,11 @@ class SimuladorDeDado:
 
             # ler os valores da telai
             self.eventos, self.valores = self.janela.Read()
-            try:
-                if self.eventos == 'sim' or self.eventos== 's':
-                    self.GerarValorDado()
-                elif self.eventos == 'não' or self.eventos == 'n':
-                    print('Agredecemos a sua participação!')
-                    break
-                else:
-                    print('Favor digitar somente sim ou não!')
-            except:
-                print('Ocorreu um erro com sua resposta!')
+            if self.eventos == 'sim':
+                self.GerarValorDado()
+            elif self.eventos == 'não':
+                sg.popup('Agredecemos a sua participação!')
+                break
 
 
     def GerarValorDado(self):
